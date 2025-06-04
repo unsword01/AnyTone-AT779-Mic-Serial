@@ -9,4 +9,4 @@ In addition to the PTT switch the AT779-UV Mic has multiple buttons on its keypa
 
 Full details of the serial protocol are [in this document](https://github.com/unsword01/AnyTone-AT779-Mic-Serial/blob/main/AnyTone%20AT779-UV%20Mic%20Serial%20Protocol.pdf))
 
-The Radio sends data back to the Mic over the serial link and I was able to determine that this is used to drive the color of the LED on the mic (Off/Red/Green). I created a simple Arduino sketch to emulate the Radio and test the control the Mic LED.
+The Radio sends data back to the Mic over the serial link and I was able to determine that this is used to drive the color of the LED on the mic (Off/Red/Green). I created a [simple Arduino sketch to emulate the Radio](https://github.com/unsword01/AnyTone-AT779-Mic-Serial/blob/main/sketch_AnyTone_Serial_to_Mic_v1.ino) and test the control the Mic LED.
