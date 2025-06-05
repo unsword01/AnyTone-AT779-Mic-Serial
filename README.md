@@ -12,3 +12,5 @@ Full details of the serial protocol are [in this document](https://github.com/un
 The Radio sends data back to the Mic over the serial link and I was able to determine that this is used to drive the color of the LED on the mic (Off/Red/Green). I created a [simple Arduino sketch to emulate the Radio](https://github.com/unsword01/AnyTone-AT779-Mic-Serial/blob/main/sketch_AnyTone_Serial_to_Mic_v1.ino) and test the control the Mic LED.
 
 The serial data sent by the Radio does not appear to carry any information related to the current frequency or channel in use, nor anything which indicates if the Radio is in VFO or Memory mode.
+
+KZ4TG
