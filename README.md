@@ -1,5 +1,6 @@
 # AnyTone-AT779-Mic-Serial
 Details of communications protocol between AnyTone AT779-UV Mic and Radio
+(also sold as Radioddity DB20-G and Retevis RA25)
 
 Inspired by the desire to interface a legacy Packet Radio TNC to an AT779-UV Radio I discovered that the PTT on the Mic is not a simple contact closure switch, but instead pressing the PTT results in serial data being sent from the Mic to the Radio. I found this documented by Filip OK1GOD in his blog post: https://melik.cz/posts/sstv-first-steps
 
