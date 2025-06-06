@@ -14,12 +14,9 @@
 SoftwareSerial anytoneSerial(10, 3); 
 
 // Declarations for AnyTone Command Strings 
-byte PTT_ON[]  = {0x41, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06};
-byte PTT_OFF[] = {0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06};
+byte PTT_ON[]        = {0x41, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06};
+byte PTT_OFF[]       = {0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06};
 byte PTT_KEEPALIVE[] = {0x06};
-
-
-#define serial_spd 115200        // Serial Port Speed
 
 int sleepTime = 50;              // sleep delay for loop in ms
 int keepaliveTime = 2;           // time between keepalive messages in seconds
@@ -57,11 +54,9 @@ void loop() {
     // handle the PTT state change
     if (pttState == false){
         writeSer(PTT_ON, ARRAY_SIZE(PTT_ON)); 
-        //Serial.println(" TX ON ");
         digitalWrite(ledPin, HIGH); // sets the LED on
       } else {
         writeSer(PTT_OFF, ARRAY_SIZE(PTT_OFF));
-        //Serial.println(" TX OFF ");
         digitalWrite(ledPin, LOW); // sets the LED off
       }
     // update the state tracking variable
@@ -73,7 +68,6 @@ void loop() {
       if(counter == countMax) {
         // send a keepalive and reset the counter
         writeSer(PTT_KEEPALIVE, ARRAY_SIZE(PTT_KEEPALIVE));
-        //Serial.println(" KEEPALIVE ");
         // Reset the counter
         counter = 1;
       } else {

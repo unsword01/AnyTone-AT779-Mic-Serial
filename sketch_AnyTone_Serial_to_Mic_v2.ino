@@ -7,8 +7,7 @@
 // Define the pins for Serial Port use (Rx, Tx)
 SoftwareSerial anytoneSerial(10, 3); 
 
-// Declarations for AnyTone Command Strings 
-
+// Declarations for AnyTone Strings sent from Radio to Mic
 byte TX_LED_ON[]     = {0x53, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06};
 byte TX_LED_OFF[]    = {0x53, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06};
 byte SQ_LED_ON[]     = {0x53, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06};
@@ -50,11 +49,9 @@ void loop() {
     // handle the PTT state change
     if (TxState == false){
         writeSer(TX_LED_ON, ARRAY_SIZE(TX_LED_ON)); 
-        //Serial.println(" TX ON ");
         digitalWrite(ledPin, HIGH); // sets the LED on
       } else {
         writeSer(TX_LED_OFF, ARRAY_SIZE(TX_LED_OFF));
-        //Serial.println(" TX OFF ");
         digitalWrite(ledPin, LOW); // sets the LED off
       }
     // update the state tracking variable
@@ -64,7 +61,6 @@ void loop() {
     lastTxState = TxState;
   }
 
-
   // read the state of the SQ input pin
   // It is Active Low so will be value of FALSE or 0 when active and TRUE or 1 when inactive
    SqState = digitalRead(SqPin);
@@ -73,11 +69,9 @@ void loop() {
     // handle the PTT state change
     if (SqState == false){
         writeSer(SQ_LED_ON, ARRAY_SIZE(SQ_LED_ON)); 
-        //Serial.println(" TX ON ");
         digitalWrite(ledPin, HIGH); // sets the LED on
       } else {
         writeSer(SQ_LED_OFF, ARRAY_SIZE(SQ_LED_OFF));
-        //Serial.println(" TX OFF ");
         digitalWrite(ledPin, LOW); // sets the LED off
       }
     // update the state tracking variable
